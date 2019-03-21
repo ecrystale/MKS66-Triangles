@@ -3,10 +3,14 @@ from matrix import *
 
 
 def add_polygon( polygons, x0, y0, z0, x1, y1, z1, x2, y2, z2 ):
-    pass
+    add_edge(polygons, x0, y0, z0, x1, y1, z1)
+    add_edge(polygons, x1, y1, z1, x2, y2, z2)
+    add_edge(polygons, x2, y2, z2, x0, y0, z0)
+    #pass
 
 def draw_polygons( polygons, screen, color ):
-    pass
+    for i in polygons:
+        draw_lines( i, screen, color)
 
 
 def add_box( polygons, x, y, z, width, height, depth ):
