@@ -14,9 +14,15 @@ def draw_polygons( polygons, screen, color ):
         m1=polygons[i]
         m2=polygons[i+1]
         m3=polygons[i+2]
-        draw_line(int(m1[0]),int(m1[1]),int(m2[0]),int(m2[1]), screen, color)
-        draw_line(int(m2[0]),int(m2[1]),int(m3[0]),int(m3[1]), screen, color)
-        draw_line(int(m3[0]),int(m3[1]),int(m1[0]),int(m1[1]), screen, color)
+        bc1=m1[2]-m2[2]
+        bc2=m2[2]-m3[2]
+        bc3=m3[2]-m1[2]
+        if (bc1>0):
+            draw_line(int(m1[0]),int(m1[1]),int(m2[0]),int(m2[1]), screen, color)
+        if (bc2>0):
+            draw_line(int(m2[0]),int(m2[1]),int(m3[0]),int(m3[1]), screen, color)
+        if(bc3>0):
+            draw_line(int(m3[0]),int(m3[1]),int(m1[0]),int(m1[1]), screen, color)
 
 
 def add_box( polygons, x, y, z, width, height, depth ):
